@@ -1,0 +1,19 @@
+services:
+  node:
+    build:
+      context: ./node
+      dockerfile: dockerfile
+    image: node-ui
+    container_name: node-ui
+    hostname: node-ui
+    env_file:
+      - ./node/.env
+    network_mode: "host"
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: dockerfile
+    image: nginx-ui
+    container_name: nginx-ui
+    hostname: nginx-ui
+    network_mode: "host"
